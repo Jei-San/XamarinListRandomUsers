@@ -1,0 +1,68 @@
+﻿using Newtonsoft.Json;
+using RestSharp;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using XamarinRandomUsers.Model;
+
+namespace XamarinRandomUsers.ViewModel
+{
+    
+    public class MainPageModel : INotifyPropertyChanged
+    {
+        public IList<Result> Results { get; private set; }
+        public string Message { get; set; }
+        public string Search { get; set; }
+        public bool IsError { get; set; }
+        public bool IsLoaded { get; set; }
+
+        private IList<Result> userList;
+
+        public MainPageModel()
+        {
+            var response = RandomUsersApiClient.GetUsers("50");
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                Users result = JsonConvert.DeserializeObject<Users>(response.Content);
+                Results = result.results;
+                userList = result.results;
+                IsLoaded = true;
+                IsError = false;
+            }
+            else
+            {
+                Message = $"Network Problems\nStatus Code: {response.StatusCode}";
+                IsError = true;
+                IsLoaded = false;
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void FilterUsers()
+        {
+            var filteredUsers = new List<Result>();
+            if (!string.IsNullOrEmpty(Search))
+            {
+                filteredUsers = Results.Where(u => u.name.first.ToLower().Contains(Search.ToLower())).ToList();
+                Results = filteredUsers;
+            }
+            else
+                Results = userList;
+            //When updating any property, we must tell the UI that it has changed with this method
+            OnPropertyChanged(nameof(Results));
+        }
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            if(PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+    }
+}

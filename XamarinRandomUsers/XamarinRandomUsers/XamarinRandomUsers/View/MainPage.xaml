@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinRandomUsers.MainPage">
+
+    <StackLayout>
+        <Entry
+           x:Name="SearchEntry"
+           Text="{Binding Search}"
+           IsVisible="{Binding IsLoaded}"
+            />
+        <Label
+            Text="{Binding Message}"
+            IsVisible="{Binding IsError}"
+            />
+        <ListView ItemsSource="{Binding Results}" RowHeight="60" IsVisible="{Binding IsLoaded}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid HeightRequest="120" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="8*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0"
+                           Source="{Binding picture.thumbnail}"
+                           Aspect="AspectFill"
+                           HeightRequest="120"
+                           WidthRequest="120" />
+                            <Label Grid.Column="1"
+                           Text="{Binding name.first}"
+                           FontAttributes="Bold" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
