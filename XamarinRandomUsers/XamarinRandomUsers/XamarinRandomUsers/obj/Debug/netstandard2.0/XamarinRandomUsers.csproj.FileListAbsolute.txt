@@ -25,3 +25,4 @@ C:\Users\jason\XamarinListRandomUsers\XamarinRandomUsers\XamarinRandomUsers\Xama
 C:\Users\jason\XamarinListRandomUsers\XamarinRandomUsers\XamarinRandomUsers\XamarinRandomUsers\obj\Debug\netstandard2.0\ref\XamarinRandomUsers.dll
 C:\Users\jason\XamarinListRandomUsers\XamarinRandomUsers\XamarinRandomUsers\XamarinRandomUsers\obj\Debug\netstandard2.0\XamarinRandomUsers.pdb
 C:\Users\jason\XamarinListRandomUsers\XamarinRandomUsers\XamarinRandomUsers\XamarinRandomUsers\obj\Debug\netstandard2.0\View\MainPage.xaml.g.cs
+C:\Users\jason\XamarinListRandomUsers\XamarinRandomUsers\XamarinRandomUsers\XamarinRandomUsers\obj\Debug\netstandard2.0\View\InfoUserPage.xaml.g.cs

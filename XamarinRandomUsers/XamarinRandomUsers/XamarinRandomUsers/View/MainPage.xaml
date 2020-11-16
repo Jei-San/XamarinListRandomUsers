@@ -16,7 +16,7 @@
             Text="{Binding Message}"
             IsVisible="{Binding IsError}"
             />
-        <ListView ItemsSource="{Binding Results}" RowHeight="60" IsVisible="{Binding IsLoaded}">
+        <ListView x:Name="UserList" SelectionMode="None" ItemsSource="{Binding Results}" RowHeight="60" IsVisible="{Binding IsLoaded}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

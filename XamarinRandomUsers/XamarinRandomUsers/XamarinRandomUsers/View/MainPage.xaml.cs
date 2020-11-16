@@ -10,22 +10,31 @@ namespace XamarinRandomUsers
     public partial class MainPage : ContentPage
     {
         //create instance of the view model
-        MainPageModel viewmodel = new MainPageModel();
+        MainPageModel viewModel = new MainPageModel();
         public MainPage()
         {
             InitializeComponent();
 
+            //Give navigation to viewmodel
+            viewModel.Navigation = Navigation;
+
             //Assign method to the text changed event
             SearchEntry.TextChanged += SearchEntry_TextChanged;
+            UserList.ItemTapped +=  async (s, e) => { await UserList_ItemTappedAsync(e); };
 
             //Give the context to the XAML with this
-            BindingContext = viewmodel;
+            BindingContext = viewModel;
+        }
+
+        private async System.Threading.Tasks.Task UserList_ItemTappedAsync(ItemTappedEventArgs e)
+        {
+            await viewModel.TapCommand((Result)e.Item);
         }
 
         private void SearchEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
             //Call the method from viewmodel when text is changed
-            viewmodel.FilterUsers();
+            viewModel.FilterUsers();
         }
     }
 }

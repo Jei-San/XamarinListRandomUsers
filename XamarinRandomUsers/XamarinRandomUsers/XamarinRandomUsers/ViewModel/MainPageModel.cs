@@ -5,7 +5,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 using XamarinRandomUsers.Model;
+using XamarinRandomUsers.View;
 
 namespace XamarinRandomUsers.ViewModel
 {
@@ -15,8 +19,10 @@ namespace XamarinRandomUsers.ViewModel
         public IList<Result> Results { get; private set; }
         public string Message { get; set; }
         public string Search { get; set; }
+        public Result User { get; set; }
         public bool IsError { get; set; }
         public bool IsLoaded { get; set; }
+        public INavigation Navigation { get; set; }
 
         private IList<Result> userList;
 
@@ -54,6 +60,11 @@ namespace XamarinRandomUsers.ViewModel
                 Results = userList;
             //When updating any property, we must tell the UI that it has changed with this method
             OnPropertyChanged(nameof(Results));
+        }
+        public async Task TapCommand(Result itemTapped)
+        {
+            User = itemTapped;
+            await Navigation.PushAsync(new InfoUserPage(this));
         }
 
         private void OnPropertyChanged(string propertyName)
