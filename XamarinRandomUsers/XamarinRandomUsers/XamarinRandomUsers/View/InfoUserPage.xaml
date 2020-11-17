@@ -7,9 +7,17 @@
              x:Class="XamarinRandomUsers.View.InfoUserPage">
     <ContentPage.Content>
         <StackLayout>
+            <Image Source="{Binding User.picture.large}"
+                HeightRequest="120"
+                WidthRequest="120"
+                HorizontalOptions="Start"
+                />
             <Label Text="{Binding User.name.first}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HeightRequest="120"
+                WidthRequest="120"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

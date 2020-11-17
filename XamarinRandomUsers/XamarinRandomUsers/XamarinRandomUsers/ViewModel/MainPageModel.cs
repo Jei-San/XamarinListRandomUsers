@@ -19,16 +19,26 @@ namespace XamarinRandomUsers.ViewModel
         public IList<Result> Results { get; private set; }
         public string Message { get; set; }
         public string Search { get; set; }
+        public string NumUsers { get; set; }
         public Result User { get; set; }
         public bool IsError { get; set; }
         public bool IsLoaded { get; set; }
         public INavigation Navigation { get; set; }
+        public ICommand SearchUsers { get; set; }
 
         private IList<Result> userList;
 
         public MainPageModel()
         {
-            var response = RandomUsersApiClient.GetUsers("50");
+            ShowUsers();
+            SearchUsers = new Command(RetrieveUsers);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void ShowUsers(string quantity = "50")
+        {
+            var response = RandomUsersApiClient.GetUsers(quantity);
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
@@ -43,11 +53,10 @@ namespace XamarinRandomUsers.ViewModel
                 Message = $"Network Problems\nStatus Code: {response.StatusCode}";
                 IsError = true;
                 IsLoaded = false;
+                Results.Clear();
+                userList.Clear();
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public void FilterUsers()
         {
             var filteredUsers = new List<Result>();
@@ -61,6 +70,12 @@ namespace XamarinRandomUsers.ViewModel
             //When updating any property, we must tell the UI that it has changed with this method
             OnPropertyChanged(nameof(Results));
         }
+        private void RetrieveUsers()
+        {
+            ShowUsers(quantity: NumUsers);
+            OnPropertyChanged(nameof(Results));
+        }
+
         public async Task TapCommand(Result itemTapped)
         {
             User = itemTapped;
@@ -74,6 +89,5 @@ namespace XamarinRandomUsers.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
     }
 }

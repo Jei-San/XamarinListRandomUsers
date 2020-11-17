@@ -8,7 +8,17 @@
 
     <StackLayout>
         <Entry
+            x:Name="NumberOfUsers"
+            Placeholder="Number of Users"
+            Keyboard="Numeric"
+            Text="{Binding NumUsers}"
+            />
+        <Button 
+            Text="Search"
+            Command="{Binding SearchUsers}" />
+        <Entry
            x:Name="SearchEntry"
+           Placeholder="Search by Name"
            Text="{Binding Search}"
            IsVisible="{Binding IsLoaded}"
             />
