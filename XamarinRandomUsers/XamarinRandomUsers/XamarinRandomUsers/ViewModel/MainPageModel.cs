@@ -56,6 +56,7 @@ namespace XamarinRandomUsers.ViewModel
                 Results.Clear();
                 userList.Clear();
             }
+            OnPropertyChanged(nameof(Results));
         }
         public void FilterUsers()
         {
@@ -72,8 +73,19 @@ namespace XamarinRandomUsers.ViewModel
         }
         private void RetrieveUsers()
         {
-            ShowUsers(quantity: NumUsers);
-            OnPropertyChanged(nameof(Results));
+            if (string.IsNullOrEmpty(NumUsers))
+            {
+                Message = "Please enter a number";
+                IsError = true;
+                IsLoaded = false;
+                OnPropertyChanged(nameof(Message));
+                OnPropertyChanged(nameof(IsError));
+                OnPropertyChanged(nameof(IsLoaded));
+            }
+            else
+            {
+                ShowUsers(quantity: NumUsers);
+            }
         }
 
         public async Task TapCommand(Result itemTapped)
