@@ -8,25 +8,34 @@
     <ContentPage.Content>
         <StackLayout>
             <Image Source="{Binding User.picture.large}"
-                HeightRequest="120"
-                WidthRequest="120"
-                HorizontalOptions="Start"
+                HeightRequest="150"
+                WidthRequest="150"
+                HorizontalOptions="Center"
                 />
             <Label Text="{Binding UserInfo}"
                FontSize="Large"
+               HorizontalOptions="Center"    
                 />
-            <Button Text="Name"
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Grid.Row="0" Text="Name"
                     Command="{Binding NameButton}"
                 />
-            <Button Text="Email"
+                <Button Grid.Column="0" Grid.Row="1" Text="Email"
                     Command="{Binding EmailButton}"
                 />
-            <Button Text="Date"
+                <Button Grid.Column="1" Grid.Row="0" Text="Date"
                     Command="{Binding DateButton}"
                 />
-            <Button Text="Address"
+                <Button Grid.Column="1" Grid.Row="1" Text="Address"
                     Command="{Binding AddressButton}"
                 />
+             </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

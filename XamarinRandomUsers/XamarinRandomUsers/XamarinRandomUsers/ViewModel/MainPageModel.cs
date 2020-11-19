@@ -16,6 +16,7 @@ namespace XamarinRandomUsers.ViewModel
     
     public class MainPageModel : INotifyPropertyChanged
     {
+        //Properties
         public IList<Result> Results { get; private set; }
         public string Message { get; set; }
         public string Search { get; set; }
@@ -25,8 +26,7 @@ namespace XamarinRandomUsers.ViewModel
         public bool IsError { get; set; }
         public bool IsLoaded { get; set; }
 
-
-
+        //Commands
         public INavigation Navigation { get; set; }
         public ICommand SearchUsers { get; set; }
         public ICommand NameButton { get; set; }
@@ -65,8 +65,11 @@ namespace XamarinRandomUsers.ViewModel
                 Message = $"Network Problems\nStatus Code: {response.StatusCode}";
                 IsError = true;
                 IsLoaded = false;
-                Results.Clear();
-                userList.Clear();
+                if (Results != null)
+                    Results.Clear();
+                if (userList != null)  
+                    userList.Clear();
+                
             }
             OnPropertyChanged(nameof(Results));
         }
@@ -103,7 +106,7 @@ namespace XamarinRandomUsers.ViewModel
         }
         private void UserName()
         {
-            UserInfo = User.name.first;
+            UserInfo = $"{User.name.first} {User.name.last}";
             OnPropertyChanged(nameof(UserInfo));
         }
         private void UserEmail()
