@@ -12,11 +12,20 @@
                 WidthRequest="120"
                 HorizontalOptions="Start"
                 />
-            <Label Text="{Binding User.name.first}"
-                HeightRequest="120"
-                WidthRequest="120"
-                HorizontalOptions="Center"
-                VerticalOptions="Start"
+            <Label Text="{Binding UserInfo}"
+               FontSize="Large"
+                />
+            <Button Text="Name"
+                    Command="{Binding NameButton}"
+                />
+            <Button Text="Email"
+                    Command="{Binding EmailButton}"
+                />
+            <Button Text="Date"
+                    Command="{Binding DateButton}"
+                />
+            <Button Text="Address"
+                    Command="{Binding AddressButton}"
                 />
         </StackLayout>
     </ContentPage.Content>

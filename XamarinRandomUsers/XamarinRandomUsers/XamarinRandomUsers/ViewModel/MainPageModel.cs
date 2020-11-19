@@ -20,17 +20,29 @@ namespace XamarinRandomUsers.ViewModel
         public string Message { get; set; }
         public string Search { get; set; }
         public string NumUsers { get; set; }
+        public string UserInfo { get; set; }
         public Result User { get; set; }
         public bool IsError { get; set; }
         public bool IsLoaded { get; set; }
+
+
+
         public INavigation Navigation { get; set; }
         public ICommand SearchUsers { get; set; }
+        public ICommand NameButton { get; set; }
+        public ICommand EmailButton { get; set; }
+        public ICommand DateButton { get; set; }
+        public ICommand AddressButton { get; set; }
 
         private IList<Result> userList;
 
         public MainPageModel()
         {
             ShowUsers();
+            NameButton = new Command(UserName);
+            EmailButton = new Command(UserEmail);
+            DateButton = new Command(UserDate);
+            AddressButton = new Command(UserAddress);
             SearchUsers = new Command(RetrieveUsers);
         }
 
@@ -78,16 +90,37 @@ namespace XamarinRandomUsers.ViewModel
                 Message = "Please enter a number";
                 IsError = true;
                 IsLoaded = false;
-                OnPropertyChanged(nameof(Message));
-                OnPropertyChanged(nameof(IsError));
-                OnPropertyChanged(nameof(IsLoaded));
             }
             else
             {
-                ShowUsers(quantity: NumUsers);
+                IsError = false;
+                IsLoaded = true;
+                ShowUsers(NumUsers);
             }
+            OnPropertyChanged(nameof(Message));
+            OnPropertyChanged(nameof(IsError));
+            OnPropertyChanged(nameof(IsLoaded));
         }
-
+        private void UserName()
+        {
+            UserInfo = User.name.first;
+            OnPropertyChanged(nameof(UserInfo));
+        }
+        private void UserEmail()
+        {
+            UserInfo = User.email;
+            OnPropertyChanged(nameof(UserInfo));
+        }
+        private void UserDate()
+        {
+            UserInfo = $"{User.dob.date.Month}/{User.dob.date.Day}/{User.dob.date.Year}";
+            OnPropertyChanged(nameof(UserInfo));
+        }
+        private void UserAddress()
+        {
+            UserInfo = $"{User.location.street.number}, {User.location.street.name}, {User.location.city}, {User.location.state}, {User.location.postcode}, {User.location.country}";
+            OnPropertyChanged(nameof(UserInfo));
+        }
         public async Task TapCommand(Result itemTapped)
         {
             User = itemTapped;
