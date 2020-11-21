@@ -36,6 +36,7 @@
                     Command="{Binding AddressButton}"
                 />
              </Grid>
+            <Button Text="{Binding FavText}" Command="{Binding FavoriteButton}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

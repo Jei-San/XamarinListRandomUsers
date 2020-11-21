@@ -5,8 +5,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="XamarinRandomUsers.MainPage">
-
-    <StackLayout>
+    <ScrollView>
+        <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Grid.Row="0" Text="Show Favorites"
+            Command="{Binding ShowFavorites}"
+                />
+                <Button Grid.Column="1" Grid.Row="0" Text="Clear"
+                    Command="{Binding Clear}"
+                />
+                <Button Grid.Column="2" Grid.Row="0" Text="Clear DB"
+                    Command="{Binding ClearDB}"
+                />
+            </Grid>
         <Entry
             x:Name="NumberOfUsers"
             Placeholder="Number of Users"
@@ -51,5 +68,6 @@
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
+   </ScrollView>
 
 </ContentPage>

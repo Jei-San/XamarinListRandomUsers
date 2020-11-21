@@ -1,4 +1,7 @@
-﻿namespace XamarinRandomUsers
+﻿using Newtonsoft.Json;
+using XamarinRandomUsers.Model;
+
+namespace XamarinRandomUsers
 {
     public class Result
     {
@@ -14,5 +17,9 @@
         public Id id { get; set; }
         public Picture picture { get; set; }
         public string nat { get; set; }
+        [JsonIgnore]
+        public bool favorite { get; set; } = false;
+        [JsonIgnore]
+        public FavoriteUser FavUser { get; set;}
     }
 }

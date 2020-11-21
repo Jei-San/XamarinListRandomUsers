@@ -1,5 +1,10 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
+using System.Linq;
 using Xamarin.Forms;
+using XamarinRandomUsers.Model;
 using XamarinRandomUsers.ViewModel;
 
 namespace XamarinRandomUsers

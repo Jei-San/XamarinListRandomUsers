@@ -3,5 +3,6 @@
   <PropertyGroup>
     <SelectedDevice>pruebas_xamarin</SelectedDevice>
     <DefaultDevice>pruebas_xamarin</DefaultDevice>
+    <AndroidDesignerPreferredTheme>Theme.AppCompat.Light.NoActionBar</AndroidDesignerPreferredTheme>
   </PropertyGroup>
 </Project>
