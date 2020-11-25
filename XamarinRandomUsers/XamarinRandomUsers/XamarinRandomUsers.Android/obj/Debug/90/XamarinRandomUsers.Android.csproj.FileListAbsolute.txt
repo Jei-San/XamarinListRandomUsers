@@ -962,3 +962,4 @@ C:\Users\jason\XamarinListRandomUsers\XamarinRandomUsers\XamarinRandomUsers\Xama
 C:\Users\jason\XamarinListRandomUsers\XamarinRandomUsers\XamarinRandomUsers\XamarinRandomUsers.Android\obj\Debug\90\android\assets\System.Buffers.dll
 C:\Users\jason\XamarinListRandomUsers\XamarinRandomUsers\XamarinRandomUsers\XamarinRandomUsers.Android\obj\Debug\90\android\assets\System.Memory.dll
 C:\Users\jason\XamarinListRandomUsers\XamarinRandomUsers\XamarinRandomUsers\XamarinRandomUsers.Android\obj\Debug\90\android\assets\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\jason\XamarinListRandomUsers\XamarinRandomUsers\XamarinRandomUsers\XamarinRandomUsers.Android\obj\Debug\90\android\src\crc6405470bef647c6f76\StandardMyEntry.java

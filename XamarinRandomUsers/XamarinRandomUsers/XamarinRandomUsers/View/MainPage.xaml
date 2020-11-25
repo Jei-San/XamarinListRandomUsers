@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:CustomRenders="clr-namespace:XamarinRandomUsers.CustomRenders"
              mc:Ignorable="d"
              x:Class="XamarinRandomUsers.MainPage">
     <ScrollView>
@@ -24,10 +24,16 @@
                     Command="{Binding ClearDB}"
                 />
             </Grid>
-        <Entry
+            <CustomRenders:MyEntry
             x:Name="NumberOfUsers"
             Placeholder="Number of Users"
             Keyboard="Numeric"
+            Padding="10"
+            BackgroundColor="#31FFFFFF"
+            BorderColor="Black"
+            BorderThickness="1"
+            CornerRadius="8" 
+            PlaceholderColor="Black"
             ClearButtonVisibility="WhileEditing"
             Text="{Binding NumUsers}"
             />
