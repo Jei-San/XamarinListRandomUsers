@@ -40,9 +40,15 @@
         <Button 
             Text="Search"
             Command="{Binding SearchUsers}" />
-        <Entry
+        <CustomRenders:MyEntry
            x:Name="SearchEntry"
            Placeholder="Search by Name"
+           Padding="10"
+           BackgroundColor="#31FFFFFF"
+           BorderColor="Black"
+           BorderThickness="1"
+           CornerRadius="8" 
+           PlaceholderColor="Black"
            Text="{Binding Search}"
            IsVisible="{Binding IsLoaded}"
            ClearButtonVisibility="WhileEditing"

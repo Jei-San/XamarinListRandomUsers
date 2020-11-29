@@ -20,7 +20,7 @@ namespace XamarinRandomUsers {
         private global::XamarinRandomUsers.CustomRenders.MyEntry NumberOfUsers;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Entry SearchEntry;
+        private global::XamarinRandomUsers.CustomRenders.MyEntry SearchEntry;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.ListView UserList;
@@ -29,7 +29,7 @@ namespace XamarinRandomUsers {
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MainPage));
             NumberOfUsers = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::XamarinRandomUsers.CustomRenders.MyEntry>(this, "NumberOfUsers");
-            SearchEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "SearchEntry");
+            SearchEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::XamarinRandomUsers.CustomRenders.MyEntry>(this, "SearchEntry");
             UserList = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "UserList");
         }
     }
